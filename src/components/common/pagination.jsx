@@ -8,8 +8,10 @@ import _ from "lodash";
 // ouput (event raised) invoke  onPageinationClicked event
 
 const Pagination = props => {
+  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+  console.log(currentPage);
+
   // [1,2,3].map()
-  const { itemsCount, pageSize } = props;
   const pagesCount = Math.ceil(itemsCount / pageSize);
   //console.log(pagesCount);
   if (pagesCount === 1) return null;
@@ -19,8 +21,13 @@ const Pagination = props => {
     <nav>
       <ul className="pagination">
         {pages.map(page => (
-          <li key={page} className="page-item">
-            <a className="page-link">{page}</a>
+          <li
+            key={page}
+            className={page === currentPage ? "page-item active" : "page-item"}
+          >
+            <a className="page-link" onClick={() => onPageChange(page)}>
+              {page}
+            </a>
           </li>
         ))}
       </ul>
