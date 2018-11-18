@@ -8,8 +8,7 @@ import _ from "lodash";
 // input received  (page number)
 // ouput (event raised) invoke  onPageinationClicked event
 
-const Pagination = props => {
-  const { itemsCount, pageSize, currentPage, onPageChange } = props;
+const Pagination = ({ itemsCount, pageSize, currentPage, onPageChange }) => {
   console.log(currentPage);
 
   // [1,2,3].map()
