@@ -15,6 +15,7 @@ class TableBody extends Component {
     const { data, columns } = this.props;
     return (
       <tbody>
+        {console.log("refactor-table-body")}
         {data.map(item => (
           <tr key={item._id}>
             {columns.map(column => (
