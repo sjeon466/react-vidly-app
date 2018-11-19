@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-
+import Input from "./common/input";
 class LoginForm extends Component {
   state = {
-    account: { username: "", password: "" }
+    account: { password: "" }
   };
   handleSubmit = e => {
     e.preventDefault();
@@ -24,30 +24,17 @@ class LoginForm extends Component {
       <div>
         <h1>login</h1>
         <form onSubmit={this.handleSubmit}>
-          <div className="form-group">
-            <label htmlFor="username">Username</label>
-            <input
-              value={account.username}
-              onChange={this.handleChange}
-              autoFocus
-              ref={this.username}
-              name="username"
-              id="username"
-              type="text"
-              className="form-control"
-            />
-          </div>
-          <div className="form-group">
-            <label htmlFor="password">Password</label>
-            <input
-              value={account.password}
-              onChange={this.handleChange}
-              name="password"
-              id="password"
-              type="text"
-              className="form-control"
-            />
-          </div>
+          <Input
+            name="username"
+            value={account.username}
+            label="Username"
+            onChange={this.handleChange}
+          />
+          <Input
+            name="password"
+            value={account.password}
+            label="Password"
+            onChange={this.handleChange}
         </form>
         <button className="btn btn-primary">Login</button>
       </div>
@@ -56,3 +43,5 @@ class LoginForm extends Component {
 }
 
 export default LoginForm;
+
+
